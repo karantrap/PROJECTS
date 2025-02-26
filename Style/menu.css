@@ -1,0 +1,632 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #13131A;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+
+}
+
+/*address section*/
+#topbar {
+    margin: 0%;
+    padding: 0%;
+}
+
+.topbar-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    justify-content: space-between;
+    color: #FFF;
+    background-color: rgb(245, 197, 41);
+}
+
+.topbar-item {
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 5px;
+
+}
+
+/*navbar css*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    color: white;
+    overflow: hidden;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.app_name {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+}
+
+.items {
+    display: flex;
+    text-decoration: none;
+}
+
+
+.items a {
+    text-decoration: none;
+    margin-right: 2rem;
+    color: rgb(205, 203, 203);
+}
+
+.items a:hover {
+    font-size: 1rem;
+    transition: all 0.4s 0s linear;
+    transform: scale(1.20);
+    color: #fff;
+    border-bottom: 2px solid rgb(245, 197, 41);
+}
+
+#logout {
+    color: rgb(245, 197, 41);
+}
+
+.user {
+    margin-left: 5rem;
+    cursor: pointer;
+}
+
+/* Style the menu bar (initially hidden on large screens) */
+.menu-bar {
+    display: none;
+    cursor: pointer;
+}
+
+.btn {
+    margin-right: 1rem;
+    padding: 6px;
+    background-color: rgb(245, 197, 41);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn a {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+}
+
+.btn:hover {
+    background-color: rgb(246, 212, 100);
+}
+
+
+@media screen and (max-width: 768px) {
+    .app_name {
+        margin-left: 0.5rem;
+    }
+
+    .menu-bar {
+        display: block;
+        /* Show the menu bar */
+    }
+
+    .hamburger {
+        margin-right: 1rem;
+    }
+
+    .items {
+        display: none;
+        /* Hide the navigation links */
+        flex-direction: column;
+        position: absolute;
+        gap: 10px;
+        top: 90px;
+        left: 0;
+        z-index: 10;
+        background-color: black;
+        color: #c0bcbc;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .items a {
+        width: 80px;
+    }
+
+    .items a:hover {
+        transition: all 0.4s 0s linear;
+        transform: scale(1.05);
+    }
+
+    .items.active {
+        display: flex;
+        /* Show the navigation links when active */
+    }
+
+    .user {
+        margin-left: 0.1rem;
+        font-size: 1.3rem;
+    }
+
+    .hamburger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active .line2 {
+        opacity: 0;
+    }
+
+    .hamburger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/*go to top*/
+.back-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 4;
+}
+
+.back-top-btn i {
+    color: #ffffff;
+}
+
+.back-top-btn:is(:hover, :focus-visible) {
+    background-color: rgb(245, 197, 41);
+    transition: all 0.6s 0s linear;
+    transform: scale(1.05);
+}
+
+.back-top-btn.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/*category section*/
+#food {
+    padding-top: 2rem;
+}
+
+#heading {
+    text-align: center;
+    margin: auto;
+    font-weight: 500;
+    color: #fff;
+    font-size: 2.5rem;
+    width: 17rem;
+    margin-bottom: 40px;
+    margin-top: 2rem;
+
+}
+
+#heading:hover {
+    transition: all 0.4s 0s linear;
+    transform: scale(1.2);
+    border-bottom: 2px solid rgb(245, 197, 41);
+    cursor: pointer;
+}
+
+.food-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    margin-top: 7rem;
+}
+
+.food-container img {
+    display: block;
+    width: 17rem;
+    margin: auto;
+    height: 17rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.img-container {
+    margin: 0 1rem;
+    position: relative;
+}
+
+.img-content {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 2;
+    text-align: center;
+    transition: all 0.4s ease-in-out 0.1s;
+}
+
+.img-content h3 {
+    color: #fff;
+    font-size: 1.9rem;
+}
+
+.img-content a {
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.img-content button {
+    background-color: rgb(245, 197, 41);
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 3px;
+    margin-top: 1.5rem;
+}
+
+.img-content button:hover {
+    background-color: rgb(246, 212, 100);
+}
+
+.img-container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 17rem;
+    height: 17rem;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    z-index: 1;
+    transform: scaleY(0);
+    transform-origin: 25rem 25rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.img-container:hover::after {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.img-container:hover .img-content {
+    opacity: 1;
+    top: 40%;
+}
+
+@media (max-width:530px) {
+    #heading {
+        font-size: 2.5rem;
+        width: 18rem;
+    }
+
+    .food-container {
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .food-container img {
+        width: 20rem;
+        height: 20rem;
+        margin-bottom: 2rem;
+
+    }
+
+    .img-container {
+        position: relative;
+    }
+
+    .img-container::after {
+        width: 20rem;
+        height: 20rem;
+        left: 16px;
+
+    }
+}
+
+/*menu section*/
+
+#food-menu {
+    padding: 3rem 0;
+}
+
+
+.food-menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    padding: 50px 0px 30px 0px;
+}
+
+.food-menu-container img {
+    display: block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.food-menu-container img:hover {
+    transition: all 0.5s 0.1s ease-out;
+    transform: scale(1.090);
+    cursor: pointer;
+}
+
+
+.food-menu-item {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 600px;
+    justify-content: space-evenly;
+    margin-bottom: 5rem;
+}
+
+.food-description {
+    margin: auto 1.5rem;
+    text-align: center;
+}
+
+.food-description p {
+    width: 70%;
+    margin: auto;
+    padding: 5px;
+}
+
+.food-title {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.food-description p {
+    font-size: 1rem;
+    color: #9f9898;
+    font-weight: 600;
+}
+
+.food-description .food-price {
+    font-size: 20px;
+    color: rgb(245, 197, 41);
+    font-weight: 700;
+}
+
+.orderbtn button {
+    width: 150px;
+    margin: 7px;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: rgb(245, 197, 41);
+}
+
+.orderbtn button:hover {
+    background-color: rgb(246, 212, 100);
+}
+
+.orderbtn button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+@media(max-width:530px) {
+    .food-menu h2 {
+        font-size: 1.5rem;
+        width: 20rem;
+    }
+
+    .food-title {
+        font-size: 1.3rem;
+
+    }
+}
+
+/*footer*/
+
+.footer-container {
+    background-image: url('./../Assets/login-signup.jpg');
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    padding: 1rem;
+}
+
+.footer-container h1 {
+    margin-left: 2.5rem;
+}
+
+.footer {
+    height: auto;
+    padding: 30px;
+    display: flex;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.links {
+    margin: auto;
+    width: 280px;
+    height: 245px;
+}
+
+
+.links h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.sub-links {
+    width: 200px;
+    height: 200px;
+}
+
+.sub-links a {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(152, 152, 152, 0.979);
+    text-decoration: none;
+}
+
+.sub-links a:hover {
+    color: rgba(220, 218, 218, 0.979);
+}
+
+.logo {
+    width: 50px;
+}
+
+.links-email {
+    width: 270px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.links-email:hover {
+    border: 2px solid rgb(245, 197, 41);
+
+}
+
+.subs {
+    width: 270px;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    font-size: 22px;
+    font-weight: 700;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgb(245, 197, 41);
+}
+
+.subs:hover {
+    background-color: rgb(246, 212, 100);
+}
+
+/*Socials*/
+
+.social-menu {
+    width: 450px;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+}
+
+.social-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+.social-menu ul li {
+    list-style: none;
+    margin: auto auto;
+}
+
+.social-menu ul li .fab {
+    font-size: 30px;
+    line-height: 50px;
+    transition: .3px;
+    color: #000;
+}
+
+.social-menu ul li .fab:hover {
+    color: #fff;
+}
+
+.social-menu ul li a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    transition: .6s;
+    box-shadow: 0 0 5px 4px rgba(95, 94, 94, 0.767);
+}
+
+.social-menu ul li a:hover {
+    transform: translate(0, -10%);
+}
+
+.social-menu ul li:nth-child(1) a:hover {
+    background-color: rgba(0, 0, 0, 0.829);
+}
+
+.social-menu ul li:nth-child(2) a:hover {
+    background-color: #0077b5;
+}
+
+.social-menu ul li:nth-child(3) a:hover {
+    background-color: #e4405f;
+}
+
+.social-menu ul li:nth-child(4) a:hover {
+    background-color: #002E6E;
+}
+
+@media (max-width:530px) {
+    .social-menu {
+        width: 250px;
+        height: auto;
+    }
+
+    .social-menu ul {
+        margin: auto;
+    }
+
+    .social-menu ul li .fab {
+        font-size: 20px;
+    }
+
+    .social-menu ul li a {
+        width: 35px;
+        margin-left: 10px;
+    }
+
+    .subs {
+        width: 200px;
+    }
+
+    .links-email {
+        width: 200px;
+
+    }
+
+    .footer-container h1 {
+        font-size: 18px;
+        margin-left: 1.5rem;
+    }
+}
